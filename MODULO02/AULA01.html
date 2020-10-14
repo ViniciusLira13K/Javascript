@@ -1,0 +1,27 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div id="app">
+           <button class="botao">Adicionar</button>
+        </div>
+        <script>
+            
+
+            var getElemento = document.querySelector('button.botao');
+            getElemento.onclick = function(){
+                //alert("Botão clicado!");
+                //var quadrado = document.createElement('botton');
+            var elemento = document.createElement('p');
+            elemento.setAttribute('title', 'texto da label');
+                
+            var texto = document.createTextNode("texto teste!");
+            elemento.appendChild(texto);
+
+            var containerElemnt = document.querySelector('#app');
+            containerElemnt.appendChild(elemento);
+            }
+        </script>
+    </body>
+</html> 
