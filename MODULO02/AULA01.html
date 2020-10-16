@@ -7,20 +7,70 @@
            <button class="botao">Adicionar</button>
         </div>
         <script>
-            
 
             var getElemento = document.querySelector('button.botao');
-            getElemento.onclick = function(){
-                //alert("Botão clicado!");
-                //var quadrado = document.createElement('botton');
-            var elemento = document.createElement('p');
-            elemento.setAttribute('title', 'texto da label');
-                
-            var texto = document.createTextNode("texto teste!");
-            elemento.appendChild(texto);
 
-            var containerElemnt = document.querySelector('#app');
-            containerElemnt.appendChild(elemento);
+            getElemento.onclick = function(){
+
+                var elemento = document.createElement('p');
+                elemento.setAttribute('title', 'texto da label');
+                    
+                var texto = document.createTextNode("texto teste!");
+                elemento.appendChild(texto);
+
+                var frame = document.createElement('iframe');
+                frame.setAttribute('id','frameColorido');
+                frame.setAttribute('class','frametes');
+                frame.style.height = 100+"px";
+                frame.style.width = 100+"px";
+                frame.style.backgroundColor = "black";
+
+                var div1 = document.createElement('div');
+                div1.setAttribute('class','divTeste');
+                div1.style.height = 100;
+                div1.style.width = 100;
+                div1.style.backgroundColor = 'black';
+
+
+                var containerElemnt = document.querySelector('#app');
+                containerElemnt.appendChild(elemento);
+                containerElemnt.appendChild(frame);
+                containerElemnt.appendChild(div1);
+
+                var getdiv = document.querySelector("[class=divTeste]");
+                getdiv.onclick = function(){
+                    alert('clicou no div');
+                    
+                }
+                var count = 0;
+                getdiv.addEventListener('mouseover',  function(){
+                    var newColor = getRandomColor();
+                    getdiv.style.backgroundColor = newColor;
+                    getFrame.style.backgroundColor = newColor;
+                    count ++;
+                    alert(count);
+
+                    var p = document.createElement('h1');
+                    p.setAttribute('title',count);
+                    var textoNode = document.createTextNode(count);
+                    p.appendChild(textoNode);
+                    var doc = document.querySelector("[class=divTeste]");
+                    doc.appendChild(p);
+
+                })
+                var getFrame = document.querySelector("[class=frametes]");
+                getFrame.onclick = function(){
+                    alert('frame clicado!');
+                }
+                
+                function getRandomColor() {
+                    var letters = "0123456789ABCDEF";
+                    var color = "#";
+                    for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                    }
+                    return color;
+                }
             }
         </script>
     </body>
