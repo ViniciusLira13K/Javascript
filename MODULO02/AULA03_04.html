@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Exercicio 03 e 04</title>
+    </head>
+    <body>
+        <ul id="list">Lista</ul>
+
+        <input type="text" name="input">
+
+        <button id="botao" onclick="adiciona()">Adicionar</button>
+
+        <script>
+            var nomes = ["Diego", "Gabriel", "Lucas"];
+
+            var lista = document.querySelector("[id=list]");
+            
+            for(var i = 0; i < nomes.length; i++){
+                var itemLista = document.createElement('li');
+                itemLista.innerHTML = nomes[i];
+                lista.appendChild(itemLista);
+            }
+            function adiciona(){
+                var inpute = document.querySelector('[name=input]');
+                var itemLista = document.createElement('li');
+                itemLista.innerHTML = inpute.value;
+                lista.appendChild(itemLista);
+
+                //var inp = document.querySelector('[name=input]');
+                // inpute.addEventListener('onkeypress', function (e){
+                //     if(e.keyCode == 13){
+                //         alert('precionado');
+                //     }
+                //     });
+                var butao = document.querySelector('[id=botao]');
+                butao.onkeypress = function (e){
+                    if(e.keyCode == 13){
+                         alert('precionado');
+                    }
+                }
+            }
+            
+
+
+            
+        </script>
+    </body>
+</html>
